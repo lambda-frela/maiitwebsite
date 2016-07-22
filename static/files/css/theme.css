@@ -147,11 +147,11 @@ h2 {
 	margin-bottom: 0px;
 }
 .event-card {
-	border: 1px solid #0093DA;
+	border: 2px solid #0093DA;
 	margin-bottom: 40px!important;
 }
 .member-card {
-	border: 1px solid #0093DA;
+	border: 2px solid #0093DA;
 }
 .member-card .panel-body {
 	padding: 0;
@@ -170,6 +170,7 @@ h2 {
 }
 .grid-row {
 	height: 300px;
+	width: 95%;
 }
 .grid-cell {
 	height: 300px;

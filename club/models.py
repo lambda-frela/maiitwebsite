@@ -24,16 +24,18 @@ class Event(models.Model):
 		super(Event, self).save(*args, **kwargs)
 
 MODEL_TYPES = (
-		('reg','Regular'),
 		('org', 'Organizer'),
-		('hon', 'Honorary'),
+		('lec', 'Lecturer'),
+		('par', 'Partner')
 	)
 
 class Member(models.Model):
 	created_date = models.DateTimeField(auto_now_add=True) 
-	member_type = models.CharField(max_length=3, default='reg', choices=MODEL_TYPES)
-	name = models.CharField(max_length=300, default="")
-	description = models.CharField(max_length=300, default="", blank=True,null=True)
+	member_type = models.CharField(max_length=3, default='lec', choices=MODEL_TYPES)
+	name = models.CharField(max_length=300, default='')
+	description = models.CharField(max_length=300, default='Лектор', blank=True, null=True)
+	email = models.EmailField(default='', blank=True, null=True)
+	webpage = models.URLField(default='', blank=True, null=True)
 	image = models.ImageField()
 	slug = models.SlugField(max_length=300, blank=True)
 
