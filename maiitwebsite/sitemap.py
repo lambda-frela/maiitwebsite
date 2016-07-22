@@ -5,7 +5,7 @@ class DynamicSitemap(Sitemap):
 	changfreq = 'weekly'
 
 	def items(self):
-		return list(Event.objects.all()) + list(Project.objects.all()) + list(Member.objects.all()) + list(Partner.objects.all())
+		return list(Event.objects.all()) + list(Project.objects.all()) + list(Member.objects.all())
 
 
 	def lastmod(self, item):
@@ -15,7 +15,7 @@ class StaticSitemap(Sitemap):
 	changfreq = 'never'
 
 	def items(self):
-		return ['about', 'index', 'members', 'partners' 'projects', 'events']
+		return ['about', 'index', 'partners', 'members', 'projects', 'events']
 
 	def location(self, item):
 		return reverse(item)

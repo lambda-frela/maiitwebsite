@@ -25,8 +25,7 @@ class Event(models.Model):
 
 MODEL_TYPES = (
 		('org', 'Organizer'),
-		('lec', 'Lecturer'),
-		('par', 'Partner')
+		('lec', 'Lecturer')
 	)
 
 class Member(models.Model):
@@ -72,7 +71,7 @@ class Partner(models.Model):
 	created_date = models.DateTimeField(auto_now_add=True) 
 	name = models.CharField(max_length=300, default="")
 	description = models.CharField(max_length=300, default="", blank=True,null=True)
-	url = models.CharField(max_length=100, default="", blank=True,null=True)
+	url = models.URLField(max_length=100, default="", blank=True,null=True)
 	image = models.ImageField()
 	slug = models.SlugField(max_length=300, blank=True)
 
