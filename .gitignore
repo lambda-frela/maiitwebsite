@@ -69,3 +69,6 @@ ENV/
 # database & media files (avatars)
 db.sqlite3
 media/
+
+# django migrations
+club/migrations/
