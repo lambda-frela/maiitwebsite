@@ -1,7 +1,7 @@
 {% load bootstrap3 %}
 {% if member_list %}
-   {% for member in member_list %}
-	    {% with forloop.counter0|divisibleby:3 as newrow %}
+	{% for member in member_list %}
+		{% with forloop.counter0|divisibleby:3 as newrow %}
 			{% if newrow or forloop.counter0 == 0 %}
 				{% if forloop.counter0 != 0 %}
 					</div>
@@ -12,13 +12,10 @@
 				{% if member_list == team_list%}
 					{% include "member_card.html" %}
 				{% endif %}
-				{% if member_list == partners_list %}
-					{% include "partner_card.html" %}
-				{% endif %}
 			</div>
 			{% if forloop.last %}
 				</div>
 			{% endif %}
 		{% endwith %}
-   {% endfor %}
+	{% endfor %}
 {% endif %}

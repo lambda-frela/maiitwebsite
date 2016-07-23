@@ -160,6 +160,15 @@ h2 {
 	margin: 0!important;
 	padding: 0!important;
 }
+.project-card {
+	border: 2px solid #0093DA;
+}
+.project-card .panel-body {
+}
+.project-card h3 {
+	margin: 0!important;
+}
+
 #navbar-menu {
 	overflow: hidden;
 }
@@ -173,7 +182,7 @@ h2 {
 	width: 95%;
 }
 .grid-cell {
-	height: 300px;
+	/*height: 300px;*/
 	margin-bottom: 20px;
 }
 .grid-cell-partners {

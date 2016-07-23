@@ -51,10 +51,12 @@ class Member(models.Model):
 
 class Project(models.Model):
 	created_date = models.DateTimeField(auto_now_add=True) 
-	title = models.CharField(max_length=300, default="")
-	description = models.CharField(max_length=300, default="", blank=True,null=True)
-	image = models.ImageField()
-	slug = models.SlugField(max_length=300, blank=True)
+	title = models.CharField(max_length=100, default="")
+	description = models.CharField(max_length=500, default="", blank=True,null=True)
+	github = models.CharField(max_length=100, default="https://github.com/")
+	url = models.URLField(max_length=100, default="", blank=True, null=True)
+	image = models.ImageField(null=True)
+	slug = models.SlugField(max_length=100, blank=True)
 
 	class Meta: 
 		ordering = ['created_date']

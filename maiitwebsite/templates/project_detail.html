@@ -10,29 +10,56 @@
 
 {% block content %}
 
-<div class="panel panel-default">
-   <div class="panel-heading">
-      <div class=" panel-title">
-               <div class="row text-left">
-                  <div>
-                     <h3 class="col-md-12">{{ project.title }}</h3>
-                  </div>
-               </div>
-         </div>
-      </div>
+<div class="panel page-panel">
+	<div class="panel-body">
+		<div class="col-md-12 page-content">
+			<div class="panel project-card">
+				<div class="panel-heading">
+					<div class=" panel-title">
+						<div>
+							<div class="row text-left">
+								<div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-   <div class="panel-body">
-      <p>{{project.created_date}}</p>
-      {% if project.image %}
-         <div>
-            <img class="img-responsive img-thumbnail" src="{{ project.image.url }}" alt="project-title-image" style="display:inline;">
-         </div>
-      {% endif %}
-      {% if project.description %}
-      <div>
-      <p>{{project.description}}</p>
-      </div>
-      {% endif %}
-   </div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-4">
+							{% if project.image %}
+								<div class="text-center">
+									<img class="img-responsive img-thumbnail" src="{{ project.image.url }}" alt="project-name-image" style="display:inline;">
+								</div>
+							{% endif %}
+						</div>
+						<div class="col-md-8">
+							<div class="text-content">
+								<h3>{{ project.title }}</h3>
+								{% if project.description %}
+									<div>
+										<p>{{project.description}}</p>
+									</div>
+								{% endif %}
+								{% if project.github %}
+									<div>
+										<p><i class="fa fa-github" aria-hidden="true"></i> Github: <a href="{{project.github}}">{{project.github}}</a></p>
+									</div>
+								{% endif %}
+								{% if project.url %}
+									<div>
+										<p><i class="fa fa-globe" aria-hidden="true"></i> Сайт: <a href="{{project.url}}">{{project.url}}</a></p>
+									</div>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+
 {% endblock %}

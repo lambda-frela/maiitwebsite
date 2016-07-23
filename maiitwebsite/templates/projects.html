@@ -4,16 +4,20 @@
 Лямбда: проекты
 {% endblock %}
 {% block content %}
-<div class="container">
-<h2 class="text-center">Проекты</h2>
-{% if project_list %}
-	<div>
-	   {% include "paginator.html" with lst=project_list total_pages=total_pages page_range=page_range  %}
-
-	   {% include "project_list.html" %}	
-
-	   {% include "paginator.html" with lst=project_list total_pages=total_pages page_range=page_range  %}	
+<div class="panel page-panel">
+	<div class="panel-body">
+		<div class="panel-heading headline-container">
+			<h2 class="headline">Проекты</h2>
+		</div>
+		<div class="container">
+		{% if project_list %}
+			<div>
+				{% include "paginator.html" with lst=project_list total_pages=total_pages page_range=page_range  %}
+				{% include "project_list.html" %}	
+				{% include "paginator.html" with lst=project_list total_pages=total_pages page_range=page_range  %}	
+			</div>
+		{% endif %}
+		</div>
 	</div>
-{% endif %}
 </div>
 {% endblock %}

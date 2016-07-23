@@ -1,11 +1,19 @@
 {% load bootstrap3 %}
 {% if project_list %}
-<div class='container'>
    {% for project in project_list %}
-			<div class='col-md-8'>
-				{% include "project_card.html"%}	
-
+		{% with forloop.counter0|divisibleby:3 as newrow %}
+			{% if newrow or forloop.counter0 == 0 %}
+				{% if forloop.counter0 != 0 %}
+					</div>
+				{% endif %}
+				<div class='grid-row row'>
+			{% endif %}
+			<div class='grid-cell col-xs-11 col-md-4 pull-left'>
+					{% include "project_card.html" %}
 			</div>
+			{% if forloop.last %}
+				</div>
+			{% endif %}
+		{% endwith %}
    {% endfor %}
-</div>
 {% endif %}
