@@ -164,6 +164,7 @@ h2 {
 	border: 2px solid #0093DA;
 }
 .project-card .panel-body {
+	height: 320px;
 }
 .project-card h3 {
 	margin: 0!important;
