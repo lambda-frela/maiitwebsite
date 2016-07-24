@@ -9,6 +9,8 @@ class Event(models.Model):
 	created_date = models.DateTimeField(auto_now_add=True) 
 	title = models.CharField(max_length=250, default="") 
 	description = models.TextField(max_length=1500, default="")
+	url = models.URLField(default="", blank=True, null=True)
+	thumbnail = models.ImageField(blank=True, null=True)
 	image = models.ImageField(blank=True,null=True)
 	date = models.DateTimeField()
 	slug = models.SlugField(max_length=300, blank=True)

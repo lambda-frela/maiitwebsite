@@ -1,41 +1,19 @@
 {% load bootstrap3 %}
 <article>
-<div class="row text-left">
-      <h4 class='col-md-12'>
-         {% bootstrap_icon "time" %} {{ event.date }}
-      </h4>
-   </div>
-<div class="event-card panel">
-   
-   <div class="panel-heading">
-      <div class="panel-title">
-               <div>
-                  <div class="row text-left">
-                     <div>
-                        <h3 class="col-md-12"><a href="{% url 'event' slug=event.slug %}" >{{ event.title }}</a></h3>
-                     </div>
-                  </div>
-                  
-               </div>
-
-         </div>
-      </div>
-
-   <div class="panel-body">
-      
-      {% if event.image %}
-      <div class="col-md-5 col-xs-12 pull-right">
-      
-            <img class="img-responsive img-thumbnail" src="{{ event.image.url }}" alt="event-{{event.slug}}-image" style="display:inline;">
-      
-      </div>
-      {% endif %}
-      
-      <div class="col-md-6 col-xs-12 text-content">
-      <p>{{event.description|linebreaks}}</p>
-      </div>
-      
-
-   </div>
-</div>
+	<div class="event-card panel">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-6 col-xs-12 text-content">
+					<h3 class="col-md-12"><a href="{% url 'event' slug=event.slug %}" >{{ event.title }}</a></h3>
+					<h4 class='col-md-12'>{% bootstrap_icon "time" %} {{ event.date }}</h4>
+					<p>{{event.description|truncatewords:50}} <i><a href="{% url 'event' slug=event.slug %}">(Читать далее)</a></i></p>
+				</div>
+				{% if event.thumbnail %}
+					<div class="col-md-4 col-xs-12 pull-right" style="align-content:center;">
+						<img class="img-responsive img-thumbnail" src="{{ event.thumbnail.url }}" alt="event-{{event.slug}}-thumbnail" style="display:inline;scale:70%;">
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
 </article>
