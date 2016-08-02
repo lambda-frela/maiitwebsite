@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^partners$', views.partners, name="partners"),
     url(r'^projects$', views.projects, name="projects"),
     url(r'^members$', views.members, name="members"),
+    url(r'^events$', views.events, name="events"),
     url(r'^about$', views.about, name="about"),
     url(r'^club/', include('club.urls')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},

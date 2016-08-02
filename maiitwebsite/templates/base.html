@@ -3,17 +3,18 @@
 <head>
 
 	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://use.fontawesome.com/1fd7c5df6b.js"></script>
 	{% load static %}
 	{% load bootstrap3 %}
 	{% bootstrap_css %}
 	{% bootstrap_javascript %}
-	
+	<link rel="shortcut icon" href="{%  static 'img/favicon.ico' %}">
 	<link href="{% static 'css/theme.css' %}" rel="stylesheet">
 	
-    <title>{% block title %}{% endblock %}</title>
-    <meta name="description" content="{% block description %}{% endblock %}">
+	<title>{% block title %}{% endblock %}</title>
+	<meta name="description" content="{% block description %}{% endblock %}">
 </head>
-<body>	
+<body>
 	<div class='wrapper'>
 		<header>
 			<div  class="container">
@@ -22,19 +23,18 @@
 		</header>
 		<div class="content">
 			<div  class="container">
-			<div id="messages">
-				{% include 'bootstrap3/messages.html' %}
-			</div>
-		    <div>
-			    {% block content %}{% endblock %}
-			</div>
+				<div id="messages">
+					{% include 'bootstrap3/messages.html' %}
+				</div>
+				<div>
+					{% block content %}{% endblock %}
+				</div>
 			</div>
 		</div>
-		
 	</div>
 	<footer class="push">
 			<div  class="container">
-			{% include 'footer.html' %}
+				{% include 'footer.html' %}
 			</div>
 		</footer>
 </body>

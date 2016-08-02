@@ -14,7 +14,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 import sys
 # its win32, maybe there is win64 too?
-is_winows = sys.platform.startswith('win')
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_DIR = os.path.dirname(__file__)
 
@@ -27,7 +27,7 @@ SECRET_KEY = '%^!4+psg(1$)w&+!j!-w2v$fa$x_gv7_m^ske0$t=2dgsmsp#t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ADMINS = (('Boris', 'euphetar@gmail.com'))
+ADMINS = (())
 
 # Application definition
 
@@ -77,26 +77,12 @@ WSGI_APPLICATION = 'maiitwebsite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-if is_winows:
-    DEBUG = True
-    ALLOWED_HOSTS = []
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
-else:
-    DEBUG = False
-    ALLOWED_HOSTS = ['*']
-    DATABASES = {
+DEBUG = True
+ALLOWED_HOSTS = []
+DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'maiitwebsite',
-    'USER': 'postgres',
-    'PASSWORD': '',
-    'HOST':'',
-    'PORT':'',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -113,14 +99,16 @@ USE_TZ = False
 
 
 CONTENT_TYPES = ['image']
-# 2.5MB - 2621440
-# 5MB - 5242880
-# 10MB - 10485760
-# 20MB - 20971520
-# 50MB - 5242880
-# 100MB 104857600
-# 250MB - 214958080
-# 500MB - 429916160
+"""
+2.5MB - 2621440
+5MB - 5242880
+10MB - 10485760
+20MB - 20971520
+50MB - 5242880
+100MB 104857600
+250MB - 214958080
+500MB - 429916160
+"""
 MAX_UPLOAD_SIZE = "5242880"
 
 # Static files (CSS, JavaScript, Images)

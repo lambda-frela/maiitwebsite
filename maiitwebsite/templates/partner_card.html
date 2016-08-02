@@ -1,22 +1,20 @@
 {% load bootstrap3 %}
-<div class="panel panel-default member-card">
+<div class="panel member-card">
    <div class="panel-body">
-      {% if partner.image %}
-         <div class="text-center">
-            <img class="img-responsive img-thumbnail" src="{{ partner.image.url }}" alt="partner-name-image" style="display:inline;">
-         </div>
-      {% endif %}
+	  {% if partner.image %}
+		 <div class="text-center">
+			<img class="img-responsive img-thumbnail" src="{{ partner.image.url }}" alt="partner-name-image" style="display:inline;">
+		 </div>
+	  {% endif %}
 
-      <div class="text-content text-center">
-         <h3><a href="{{ partner.url }}" >{{ partner.name }}</a></h3>
-      
-
-         {% if partner.description %}
-         <div>
-         <p>{{partner.description}}</p>
-         </div>
-         {% endif %}
-      </div>
-      
+	  <div class="text-content text-center">
+		 <h3><a href="{% url 'partner' slug=partner.slug %}" >{{ partner.name }}</a></h3>
+		 {% if partner.description %}
+			<div>
+				<p>{{partner.description}}</p>
+			</div>
+		 {% endif %}
+	  </div>
+	  
    </div>
 </div>

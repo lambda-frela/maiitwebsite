@@ -1,22 +1,19 @@
 {% load bootstrap3 %}
 <div class="panel member-card">
-   <div class="panel-body">
-      {% if member.image %}
-         <div class="text-center">
-            <img class="img-responsive img-thumbnail" src="{{ member.image.url }}" alt="member-name-image" style="display:inline;">
-         </div>
-      {% endif %}
+	<div class="panel-body">
+		{% if member.image %}
+			<div class="text-center">
+				<img class="img-responsive img-thumbnail" src="{{ member.image.url }}" alt="member-name-image" style="display:inline;">
+			</div>
+		{% endif %}
 
-      <div class="text-content">
-         <h3><a href="{% url 'member' slug=member.slug %}" >{{ member.name }}</a></h3>
-      
-
-         {% if member.description %}
-         <div>
-         <p>{{member.description}}</p>
-         </div>
-         {% endif %}
-      </div>
-      
-   </div>
+		<div class="text-content">
+			<h3><a href="{% url 'member' slug=member.slug %}" >{{ member.name }}</a></h3>
+			{% if member.description %}
+				<div>
+					<p>{{member.description}}</p>
+				</div>
+			{% endif %}
+		</div>
+	</div>
 </div>

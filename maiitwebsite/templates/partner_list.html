@@ -3,7 +3,6 @@
 <div>
    {% for partner in partner_list %}
 	    {% with forloop.counter0|divisibleby:3 as newrow %}
-		   
 			{% if newrow or forloop.counter0 == 0 %}
 				{% if forloop.counter0 != 0 %}
 					</div>

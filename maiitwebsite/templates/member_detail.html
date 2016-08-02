@@ -1,55 +1,65 @@
 {% extends "base.html" %}
 {% load bootstrap3 %}
 
-{% load bootstrap3 %}
 {% block title %}
-Лямбда участник {{member.name}}
+	Лямбда участник {{member.name}}
 {% endblock %}
 
 {% block description %}
-{{member.name}} {{member.description}}
+	{{member.name}} {{member.description}}
 {% endblock %}
 
 {% block content %}
 
 <div class="panel page-panel">
+	<div class="panel-body">
+		<div class="col-md-12 page-content">
+			<div class="panel member-card">
+				<div class="panel-heading">
+					<div class=" panel-title">
+						<div>
+							<div class="row text-left">
+								<div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-   <div class="panel-body">
-   <div class="col-md-12 page-content">
-
-<div class="panel member-card">
-   <div class="panel-heading">
-      <div class=" panel-title">
-               <div>
-                  <div class="row text-left">
-                     <div>
-                        
-                     </div>
-                  </div>
-               </div>
-         </div>
-      </div>
-
-   <div class="panel-body">
-      {% if member.image %}
-         <div class="text-center">
-            <img class="img-responsive img-thumbnail" src="{{ member.image.url }}" alt="member-name-image" style="display:inline;">
-         </div>
-      {% endif %}
-
-      <div class="text-content">
-         <h3>{{ member.name }}</h3>
-      
-
-         {% if member.description %}
-         <div>
-         <p>{{member.description}}</p>
-         </div>
-      </div>
-      {% endif %}
-   </div>
-</div>
-</div>
-</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-4">
+							{% if member.image %}
+								<div class="text-center">
+									<img class="img-responsive img-thumbnail" src="{{ member.image.url }}" alt="member-name-image" style="display:inline;">
+								</div>
+							{% endif %}
+						</div>
+						<div class="col-md-8">
+							<div class="text-content">
+								<h3>{{ member.name }}</h3>
+								{% if member.description %}
+									<div>
+										<p>{{member.description}}</p>
+									</div>
+								{% endif %}
+								{% if member.email %}
+									<div>
+										<p><i class="fa fa-envelope-o" aria-hidden="true"></i> Email: <a href="mailto:{{member.email}}">{{member.email}}</a></p>
+									</div>
+								{% endif %}
+								{% if member.webpage %}
+									<div>
+										<p><i class="fa fa-globe" aria-hidden="true"></i> Сайт: <a href="{{member.webpage}}">{{member.webpage}}</a></p>
+									</div>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 {% endblock %}

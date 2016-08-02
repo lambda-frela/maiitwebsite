@@ -3,6 +3,7 @@ from club.models import *
 from . import utils
 from django.template import RequestContext
 from django.db.models import Q
+
 def events(request):
 	template_name = 'index.html'
 
@@ -21,16 +22,8 @@ def index(request):
 
 def partners(request):
 	template_name = 'partners.html'
-
 	partners = Partner.objects.all()
-
-	paginate_by = 10
-	page = request.GET.get('page')
-	show_pages_delta = 5
-	
-	total_num_pages = 0
-	partner_list, page_range, total_num_pages = utils.paginated_list(page, paginate_by, show_pages_delta, partners)
-	return render_to_response(template_name, { "partner_list": partner_list, "page_range": page_range, "total_pages":total_num_pages }, context_instance=RequestContext(request))
+	return render_to_response(template_name, { "partner_list": partners }, context_instance=RequestContext(request))
 
 
 def projects(request):
@@ -46,19 +39,11 @@ def projects(request):
 	project_list, page_range, total_num_pages = utils.paginated_list(page, paginate_by, show_pages_delta, projects)
 	return render_to_response(template_name, { "project_list": project_list, "page_range": page_range, "total_pages":total_num_pages }, context_instance=RequestContext(request))
 
+
 def members(request):
 	template_name = 'members.html'
-
-	organizers = Member.objects.filter(member_type='org')
-	members = Member.objects.filter( Q(member_type='reg') | Q(member_type='hon') )
-
-	paginate_by = 10
-	page = request.GET.get('page')
-	show_pages_delta = 5
-	
-	total_num_pages = 0
-	member_list, page_range, total_num_pages = utils.paginated_list(page, paginate_by, show_pages_delta, members)
-	return render_to_response(template_name, { "organizers_list":organizers,  "member_list": member_list, "page_range": page_range, "total_pages":total_num_pages }, context_instance=RequestContext(request))
+	team = Member.objects.filter( Q(member_type='org') | Q(member_type='lec') )
+	return render_to_response(template_name, { "team_list":team }, context_instance=RequestContext(request))
 
 
 
